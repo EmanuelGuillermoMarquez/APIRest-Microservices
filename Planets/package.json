@@ -1,7 +1,7 @@
 {
   "name": "api_rest_microservices_version",
   "version": "1.0.0",
-  "description": "characters",
+  "description": "planets",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
