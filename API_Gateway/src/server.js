@@ -26,4 +26,6 @@ server.use("/planets", proxyMiddleware({
     })
 );
 
+server.use("/", require("./routes"));
+
 module.exports = server;

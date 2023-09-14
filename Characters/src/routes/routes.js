@@ -1,10 +1,9 @@
 const { Router } = require("express");
-const characters = require("../data/characters.json");
+const controllers = require("../controllers");
 
 const charactersRouter = Router();
 
-charactersRouter.get("/", (req, res) => {
-    res.status(200).json(characters);
-});
+charactersRouter.get("/", controllers.getCharacters);
+charactersRouter.post("/", controllers.createCharacter);
 
 module.exports = charactersRouter;
