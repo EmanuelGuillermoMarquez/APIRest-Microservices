@@ -1,10 +1,8 @@
 const { Router } = require("express");
-const films = require("../data/films.json");
+const controllers = require("../controllers");
 
 const filmsRouter = Router();
 
-filmsRouter.get("/", (req, res) => {
-    res.status(200).json(films);
-});
+filmsRouter.get("/", controllers.getFilms);
 
 module.exports = filmsRouter;

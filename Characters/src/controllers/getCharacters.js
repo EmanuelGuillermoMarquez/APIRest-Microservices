@@ -1,5 +1,6 @@
-const characters = require("../data/characters.json");
+const Characters = require("../data");
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
+    const characters = await Characters.list();
     res.status(200).json(characters);
 };
