@@ -9,19 +9,19 @@ const server = express();
 server.use(morgan("dev"));
 
 server.use("/characters", proxyMiddleware({
-    target:"http://localhost:8001",
+    target:"http://characters_service:8001",
 	changeOrigin:true
     })
 );
 
 server.use("/films", proxyMiddleware({
-	target:"http://localhost:8002",
+	target:"http://films_service:8002",
 	changeOrigin:true
     })
 );
 
 server.use("/planets", proxyMiddleware({
-	target:"http://localhost:8003",
+	target:"http://planets_service:8003",
 	changeOrigin:true
     })
 );
