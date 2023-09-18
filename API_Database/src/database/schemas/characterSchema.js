@@ -14,4 +14,28 @@ const characterSchema = new Schema({
     films: [{type: String, ref: "Film"}] //Array de refencias al ID de las peliculas
 });
 
+characterSchema.statics.list = async function() {
+    return await this.find()
+        .populate("homeworld", ["_id", "name"])
+        .populate("films", ["_id", "title"]);
+};
+
+characterSchema.statics.get = async function(id) {
+    return await this.findById(id)
+        .populate("homeworld", ["_id", "name"])
+        .populate("films", ["_id", "title"]);
+};
+
+characterSchema.statics.insert = async function(character) {
+    return await this.create(character);
+};
+
+characterSchema.statics.update = async function(id, data) {
+    return await this.findByIdAndUpdate(id, data, {returnDocument: "after"});
+};
+
+characterSchema.statics.delete = async function(id) {
+    return await this.findByIdAndRemove(id);
+};
+
 module.exports = characterSchema;

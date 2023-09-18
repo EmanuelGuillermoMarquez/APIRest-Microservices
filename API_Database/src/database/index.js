@@ -8,13 +8,11 @@ const Films = conn.model("Film", require("./schemas/filmSchema"));
 const Planets = conn.model("Planet", require("./schemas/planetSchema"));
 
 
-/* Characters.find()
-    .populate("films", ["_id", "title"])
-    .then(res => console.log(res[0]));
- */
+// Characters.list().then(res => console.log(res));
+// Characters.get().then(res => console.log(res[0]));
 
 module.exports = {
     Characters,
     Films,
-    Planets
-}
+    Planets,
+};

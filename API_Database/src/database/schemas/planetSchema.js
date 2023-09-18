@@ -13,4 +13,28 @@ const planetSchema = new Schema({
     films: [{type: String, ref: "Planet"}], //Array de refencias al ID de las peliculas
 });
 
+planetSchema.statics.list = async function() {
+    return await this.find()
+        .populate("residents", ["_id", "name"])
+        .populate("films", ["_id", "title"]);
+};
+
+planetSchema.statics.get = async function(id) {
+    return await this.findById(id)
+        .populate("residents", ["_id", "name"])
+        .populate("films", ["_id", "title"]);
+};
+
+planetSchema.statics.insert = async function(planet) {
+    return await this.create(planet);
+};
+
+planetSchema.statics.update = async function(id, data) {
+    return await this.findByIdAndUpdate(id, data, {returnDocument: "after"});
+};
+
+planetSchema.statics.delete = async function(id) {
+    return await this.findByIdAndRemove(id);
+};
+
 module.exports = planetSchema;
