@@ -6,5 +6,5 @@ module.exports = async (req, res) => {
     const data = req.body;
     console.log(data);
     const newData = await dbStore[model].insert(data);
-    response(res, 200, newData);
+    response(res, 200, newData, "Información agregada");
 };

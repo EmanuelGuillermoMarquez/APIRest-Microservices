@@ -1,6 +1,9 @@
 module.exports = (controller) => {
     return function(req, res, next) {
-        controller(req, res).catch((err) => next(err));
+        controller(req, res).catch((err) => {
+            //console.log(err.response);
+            next(err);
+        });
     };
 };
 
