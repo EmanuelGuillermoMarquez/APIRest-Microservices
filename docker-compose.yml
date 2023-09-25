@@ -1,0 +1,39 @@
+version: '3'
+
+services: 
+  api_gateway: 
+    container_name: api_gateway
+    restart: always
+    build: ./API_Gateway
+    ports:
+      - "8000:8000"
+
+  characters_service: 
+    container_name: characters_service
+    restart: always
+    build: ./Characters
+    ports:
+      - "8001:8001"
+
+  films_service: 
+    container_name: films_service
+    restart: always
+    build: ./Films
+    ports:
+      - "8002:8002"
+
+  planets_service: 
+    container_name: planets_service
+    restart: always
+    build: ./Planets
+    ports:
+      - "8003:8003"
+
+  api_database: 
+    container_name: api_database
+    restart: always
+    build: ./API_Database
+    ports:
+      - "8004:8004"
+
+  

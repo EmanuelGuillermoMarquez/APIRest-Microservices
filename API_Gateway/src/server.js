@@ -28,7 +28,9 @@ server.use("/planets", proxyMiddleware({
 
 server.use("/", require("./routes"));
 
-server.use("*", (req, res) => res.status(404).send("Not found"));
-
+server.use("*", (req, res) => res.status(404).send({
+    error: true,
+    message:"No se ha encontrado"
+}));
 
 module.exports = server;
